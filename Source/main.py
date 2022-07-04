@@ -21,8 +21,7 @@ if __name__ == '__main__':
     tmpPath = "tmp"
     if not path.exists(tmpPath):
         mkdir(tmpPath)
-
-
+        
     InputFilePath = path.join(InputPath, filename)
     tmpFilePath = path.join(tmpPath, filename)
     csvPath = path.join(tmpPath, "csvfiles")
