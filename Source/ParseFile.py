@@ -24,6 +24,7 @@ class ParseFile():
             self.pathexists = True
         else:
             self.pathexists = False
+            print("Cannot find file in the Input folder")
 
         self._excel = openpyxl.load_workbook(filepath)  # opening excel workbook
 

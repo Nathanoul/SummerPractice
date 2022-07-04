@@ -47,7 +47,9 @@ class MsgBoxListener(Thread):
         time.sleep(0.2)
 
     def GetMessage(self):
-        return self._message
+        msgrows = self._message.splitlines()
+        msg = "\n   ".join(msgrows)
+        return msg
 
 
 if __name__=='__main__':

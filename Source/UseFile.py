@@ -20,8 +20,7 @@ class UseFile():
             self.pathexists = True
         else:
             self.pathexists = False
-
-        self._messege = ""
+            print("Cannot find file in the Input folder")
 
 
     def OpenFile(self):
@@ -57,7 +56,7 @@ class UseFile():
 
 
 
-    def ClickMassCalc(self, param1:int = "50",  param2:int = "1"):
+    def ClickMassCalc(self, param1:int = 50,  param2:int = 1):
         if self.pathexists:
             xl = self._xl
             wb = self._wb
@@ -68,15 +67,18 @@ class UseFile():
             sh.Range("D3").Value = param1
             sh.Range("D4").Value = param2
 
+            # creating lisener object to search and close popup
+            # with name Microsoft Excel every 2 second
             listener = MsgBoxListener('Microsoft Excel', 2)
             listener.start()
             xl.Application.Run('click_mass_calc')  # execute "Запустить массовый расчет"
             listener.stop()
+            message = listener.GetMessage()
 
             wb.Save()
 
             print("Mass calculating completed")
-            print("Message:\n" + "---" + listener.GetMessage())  # read message
+            print("Message:\n   " + message)  # print message
 
 
 

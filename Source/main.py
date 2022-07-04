@@ -13,12 +13,15 @@ if __name__ == '__main__':
     InputPath = "Input"
     if not path.exists(InputPath):
         mkdir(InputPath)
+
     OutputPath = "Output"
     if not path.exists(OutputPath):
         mkdir(OutputPath)
+
     tmpPath = "tmp"
     if not path.exists(tmpPath):
         mkdir(tmpPath)
+
 
     InputFilePath = path.join(InputPath, filename)
     tmpFilePath = path.join(tmpPath, filename)
@@ -41,7 +44,7 @@ if __name__ == '__main__':
     # creating parser object that allows to parse sheets in excel file
     Parser = ParseFile("edited.xlsm")  # using edited.xlsm
 
-    # parse sheets 5, 6 and 7
+    # parsing sheets 5, 6 and 7
     Parser.ParseSheet5("Sheet5.csv")
     Parser.ParseSheet6("Sheet6.csv")
     Parser.ParseSheet7("Sheet7.csv")
