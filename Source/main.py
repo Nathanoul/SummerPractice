@@ -39,7 +39,7 @@ if __name__ == '__main__':
     # creating parser object that allows to parse sheets in excel file
     Parser = ParseFile("edited.xlsm")  # using edited.xlsm
 
-    # parse sheets 5, 6 and 7
+    # parsing sheets 5, 6 and 7
     Parser.ParseSheet5("Sheet5.csv")
     Parser.ParseSheet6("Sheet6.csv")
     Parser.ParseSheet7("Sheet7.csv")
