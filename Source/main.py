@@ -1,7 +1,7 @@
 from UseFile import UseFile
 from ParseFile import ParseFile
 import shutil
-from os import chdir, listdir, path, remove, rmdir
+from os import chdir, listdir, path, remove, rmdir, mkdir
 
 if __name__ == '__main__':
     filename = "РБОТ_18022019_для ННГ.xlsm"
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     tmpPath = "tmp"
     if not path.exists(tmpPath):
         mkdir(tmpPath)
-        
+
     InputFilePath = path.join(InputPath, filename)
     tmpFilePath = path.join(tmpPath, filename)
     csvPath = path.join(tmpPath, "csvfiles")
@@ -31,7 +31,9 @@ if __name__ == '__main__':
     Executor = UseFile("РБОТ_18022019_для ННГ.xlsm")  # using РБОТ_18022019_для ННГ.xlsm
 
     Executor.OpenFile()  # opening file
-    Executor.ClickMassCalc()  # execute "Запустить массовый расчет"
+    p1 = 48
+    p2 = 2
+    Executor.ClickMassCalc(p1, p2)  # execute "Запустить массовый расчет" with parameters p1 and p2
     Executor.ClickSumBushes()  # execute "Суммировать профиля добычи для каждого куста"
     Executor.ClickSumOil()  # execute "Суммировать добычу для месторождения"
     Executor.CloseFile("edited.xlsm")  # closing file and saving as edited.xlsm
@@ -39,7 +41,7 @@ if __name__ == '__main__':
     # creating parser object that allows to parse sheets in excel file
     Parser = ParseFile("edited.xlsm")  # using edited.xlsm
 
-    # parsing sheets 5, 6 and 7
+    # parse sheets 5, 6 and 7
     Parser.ParseSheet5("Sheet5.csv")
     Parser.ParseSheet6("Sheet6.csv")
     Parser.ParseSheet7("Sheet7.csv")

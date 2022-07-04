@@ -57,12 +57,16 @@ class UseFile():
 
 
 
-    def ClickMassCalc(self):
+    def ClickMassCalc(self, param1:int = "50",  param2:int = "1"):
         if self.pathexists:
             xl = self._xl
             wb = self._wb
 
             wb.Worksheets("массовый расчет").Activate()  # sheet with macros became active
+
+            sh = wb.Worksheets("массовый расчет")
+            sh.Range("D3").Value = param1
+            sh.Range("D4").Value = param2
 
             listener = MsgBoxListener('Microsoft Excel', 2)
             listener.start()
@@ -72,7 +76,7 @@ class UseFile():
             wb.Save()
 
             print("Mass calculating completed")
-            print("Message:\n" + "   " + listener.GetMessage())  # read message
+            print("Message:\n" + "---" + listener.GetMessage())  # read message
 
 
 
