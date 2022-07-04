@@ -9,10 +9,17 @@ if __name__ == '__main__':
     # moving directory one folder back
     chdir("../")
 
-    # creating necessary paths
+    # creating necessary paths if they are not existing
     InputPath = "Input"
+    if not path.exists(InputPath):
+        mkdir(InputPath)
     OutputPath = "Output"
+    if not path.exists(OutputPath):
+        mkdir(OutputPath)
     tmpPath = "tmp"
+    if not path.exists(tmpPath):
+        mkdir(tmpPath)
+        
     InputFilePath = path.join(InputPath, filename)
     tmpFilePath = path.join(tmpPath, filename)
     csvPath = path.join(tmpPath, "csvfiles")
