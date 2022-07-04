@@ -27,7 +27,7 @@ if __name__ == '__main__':
     tmpFilePath = path.join(tmpPath, filename)
     csvPath = path.join(tmpPath, "csvfiles")
 
-    # copying files from Input folder to temporary folder
+    # copying files from Input folder to the temporary folder
     shutil.copy2(InputFilePath, tmpFilePath)
 
     # creating execution object that allows to execute macro in excel file
@@ -49,7 +49,7 @@ if __name__ == '__main__':
     Parser.ParseSheet6("Sheet6.csv")
     Parser.ParseSheet7("Sheet7.csv")
 
-    # copying files to Output folder
+    # copying files to the Output folder
     for f in listdir(csvPath):
         shutil.copy2(path.join(csvPath, f), path.join(OutputPath, f))
 

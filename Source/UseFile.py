@@ -78,7 +78,7 @@ class UseFile():
             wb.Save()
 
             print("Mass calculating completed")
-            print("Message:\n   " + message)  # print message
+            print("Message:\n" + message)  # print message
 
 
 
