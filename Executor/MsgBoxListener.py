@@ -1,7 +1,7 @@
 '''
 Allows to create listener object to search and close
 popup window with given title (title) with given period (interval)
-method start starts listening process
+method start begins listening process
 method stop end listening process
 method GetMessage gives text in the closed popup
 '''
